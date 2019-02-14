@@ -3,6 +3,22 @@ name = "paths-as-strings"
 version = "0.1.0"
 authors = ["Philip Daniels <Philip.Daniels1971@gmail.com>"]
 edition = "2018"
+readme = "README.md"
+description = """
+paths_as_strings is a small crate with two public free-functions for
+unambiguously and universally encoding Paths as UTF-8 strings, and then
+decoding them back into Paths.
+"""
+documentation = "https://github.com/PhilipDaniels/paths_as_strings"
+homepage = "https://github.com/PhilipDaniels/paths_as_strings"
+repository = "https://github.com/PhilipDaniels/paths_as_strings"
+license = "MIT"
+keywords = ["path", "pathbuf", "String", "encode", "MRU", "filesystem"]
+categories = ["encoding", "filesystem"]
 
 [dependencies]
 base64 = "0.10"
+
+[dev-dependencies]
+separator = "0.3.1"
+walkdir = "2"

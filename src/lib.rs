@@ -29,7 +29,6 @@ pub fn encode_path<P>(p: &P) -> Cow<str>
 /// whether the string 'S' is an actual path or one that was Base-64 encoded.
 /// The function will only return an error if the Path was the Base-64 encoded
 /// form and the encoding has been tampered with.
-/// TODO: Don't export a used error type.
 pub fn decode_path(encoded_path_string: &str) -> Result<PathBuf, base64::DecodeError>
 {
     if encoded_path_string.starts_with(PREFIX) {
@@ -103,14 +102,14 @@ fn decode_bytes(encoded_str: &str) -> Result<Vec<u8>, base64::DecodeError> {
 }
 
 #[cfg(not(windows))]
-fn decode_os(bytes: Vec<u8>) -> OsString {
+pub(crate) fn decode_os(bytes: Vec<u8>) -> OsString {
     use std::os::unix::ffi::OsStringExt;
 
     OsString::from_vec(bytes)
 }
 
 #[cfg(windows)]
-fn decode_os(bytes: Vec<u8>) -> OsString {
+pub(crate) fn decode_os(bytes: Vec<u8>) -> OsString {
     use std::os::windows::ffi::OsStringExt;
 
     let mut wide_chars = Vec::with_capacity(bytes.len() / 2);
