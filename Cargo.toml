@@ -13,7 +13,7 @@ documentation = "https://github.com/PhilipDaniels/paths_as_strings"
 homepage = "https://github.com/PhilipDaniels/paths_as_strings"
 repository = "https://github.com/PhilipDaniels/paths_as_strings"
 license = "MIT"
-keywords = ["path", "pathbuf", "String", "encode", "MRU", "filesystem"]
+keywords = ["path", "String", "encode", "MRU", "filesystem"]
 categories = ["encoding", "filesystem"]
 
 [dependencies]
