@@ -13,8 +13,18 @@ inverse, `decode_path`, which can be used to do reverse the encoding.
 Usage:
 
 ```
-let encoded: String = paths_as_strings.encode_path(&the_path);
-let decoded: PathBuf = paths_as_strings.decode_path(&encoded).unwrap();
+use std::borrow::Cow;
+use std::path::PathBuf;
+
+fn main() {
+    let the_path = PathBuf::from("some/path");
+
+    let encoded: Cow<str> = paths_as_strings::encode_path(&the_path);
+    println!("encoded = {:?}", encoded);
+
+    let decoded: PathBuf = paths_as_strings::decode_path(&encoded).unwrap();
+    println!("decoded = {:?}", decoded);
+}
 ```
 
 In the (very, very) common case of a path that actually **is** a UTF-8 string this
