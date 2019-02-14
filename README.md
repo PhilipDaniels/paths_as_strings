@@ -36,10 +36,10 @@ The clever bit it how `decode_path` is able to recognise a path that has been ba
 vs. one that hasn't. For example, the string 'b478dn3hgi' may represent an encoded filename
 or it may be an actual valid filename. Some way therefore has to be found to represent
 encoded paths in a namespace distinct from non-encoded paths. This is done by having
-`encode_path` return a string that cannot be a valid filename.
+`encode_path` - only when encoding is needed - return a string that cannot be a valid filename.
 
 On Windows, there are [many](https://docs.microsoft.com/en-us/windows/desktop/fileio/naming-a-file)
-invalid characters that cannot be used in filenames, furthermore when using the drive-letter
+characters that cannot be used in filenames, furthermore when using the drive-letter
 syntax such as "A:\", the first character can only be A-Z. The scheme this crate uses is
 to prefix base64-encoded paths with "::\\_".
 
@@ -85,4 +85,4 @@ This represents 0.000034607800182867614% of the total path count.
 ```
 
 I told you it was rare. The 3 bad filenames were all for files downloaded from the
-Internet, they are not part of the standard OS file layout.
+Internet, they are not part of the standard OS file payload.
